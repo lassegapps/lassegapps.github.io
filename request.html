@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTTP Request with jQuery</title>
+  <!-- Include jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div id="result"></div>
+
+  <script>
+    // Function to make the HTTP request
+    function fetchHtmlPage() {
+      const url = 'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign=1';
+
+      // Send GET request using jQuery's $.get() method
+      $.get(url, function (data) {
+        // Success callback function
+        $('#result').html('<pre>' + data + '</pre>');
+      }).fail(function (jqXHR, textStatus, errorThrown) {
+        // Error callback function
+        $('#result').text('Error: ' + textStatus + ', ' + errorThrown);
+      });
+    }
+
+    // Call the function when the page is ready
+    $(document).ready(function () {
+      fetchHtmlPage();
+    });
+  </script>
+</body>
+</html>
