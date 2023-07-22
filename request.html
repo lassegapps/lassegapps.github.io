@@ -19,7 +19,7 @@
         $('#result').html('<pre>' + data + '</pre>');
       }).fail(function (jqXHR, textStatus, errorThrown) {
         // Error callback function
-        $('#result').text('Error: ' + textStatus + ', ' + errorThrown);
+        $('#result').text('Error: ' + textStatus + ', ' + jqXHR);
       });
     }
 
